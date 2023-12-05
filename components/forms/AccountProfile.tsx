@@ -42,6 +42,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     const { startUpload } = useUploadThing("media");
     const router = useRouter()
     const pathname = usePathname()
+    console.log("Test")
 
     const form = useForm({
         resolver: zodResolver(userValidation),
@@ -66,7 +67,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                 values.profile_photo = imgRes[0].url;
             }
         }
-
+        console.log(values.username)
         await updateUser({
             userId: user.id,
             username: values.username,
